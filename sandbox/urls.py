@@ -14,14 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from .views import home
 from file_download.views import bibtex_reference_download
 from forms.views import forms_index
+from tables.views import people
+import debug_toolbar
+
 
 urlpatterns = [
+    path('__debug__/', include(debug_toolbar.urls)),
+    path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('bibtex/<item_id>', bibtex_reference_download, name='bibtex'),
     path('forms/', forms_index, name='forms'),
-    path('admin/', admin.site.urls),
+    path('people/', people, name='people'),
 ]
