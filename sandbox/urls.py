@@ -27,7 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bibtex/<item_id>', bibtex_reference_download, name='bibtex'),
     path('forms/', forms_index, name='forms'),
-    path('people/', people, name='people'),
+    path('tables/', people, name='tables'),
+    path('', home, name='home'),
 ]
 
 if settings.DEBUG:
