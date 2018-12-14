@@ -19,6 +19,7 @@ from .views import home
 from file_download.views import bibtex_reference_download
 from forms.views import forms_index
 from tables.views import people
+from template_engine.views import jinja_engine
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,6 +29,7 @@ urlpatterns = [
     path('bibtex/<item_id>', bibtex_reference_download, name='bibtex'),
     path('forms/', forms_index, name='forms'),
     path('tables/', people, name='tables'),
+    path('template_engine/jinja/', jinja_engine, name='template_engine_jinja'),
     path('', home, name='home'),
 ]
 

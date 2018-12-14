@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'tables',
 
     'debug_toolbar',
-    'template_profiler_panel'
+    'template_profiler_panel',
+    'template_engine'
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,14 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'sandbox.urls'
 
 TEMPLATES = [
+    {
+       'BACKEND': 'django.template.backends.jinja2.Jinja2',
+       'DIRS': [],
+       'APP_DIRS': True,
+       'OPTIONS': {
+         'environment': 'template_engine.jinja2.environment'
+       },
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')]
