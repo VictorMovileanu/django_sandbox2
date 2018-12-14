@@ -19,14 +19,23 @@ from .views import home
 from file_download.views import bibtex_reference_download
 from forms.views import forms_index
 from tables.views import people
-import debug_toolbar
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('__debug__/', include(debug_toolbar.urls)),
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
     path('bibtex/<item_id>', bibtex_reference_download, name='bibtex'),
     path('forms/', forms_index, name='forms'),
     path('people/', people, name='people'),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+
+        # For django versions before 2.0:
+        # url(r'^__debug__/', include(debug_toolbar.urls)),
+
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + urlpatterns
