@@ -46,7 +46,8 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'template_profiler_panel',
-    'template_engine'
+    'template_engine',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
