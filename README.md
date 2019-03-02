@@ -22,3 +22,9 @@ These commands are all run in the virtual environment
 pip install -r requirements.txt
 python manage.py migrate
 ```
+
+### Pip helpers
+Uninstall all pip packages
+```
+pip freeze | xargs pip uninstall -y
+```
