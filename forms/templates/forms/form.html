@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Forms</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 <h1>Forms</h1>
@@ -11,6 +13,13 @@
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
+</form>
+
+<h2>Styled form</h2>
+<p>Hell yeah, what a <a href="https://www.sitepoint.com/position-text-labels-on-forms-using-css/">link</a></p>
+<form action="." class="styled-form">
+    {% csrf_token %}
+    {{ form.as_p }}
 </form>
 </body>
 </html>

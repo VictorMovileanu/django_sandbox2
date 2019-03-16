@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import ProductForm
+from .forms import ProductForm, StyledForm
 from django.http import HttpResponseRedirect
 
 
@@ -13,4 +13,6 @@ def forms_index(request):
     else:
         form = ProductForm()
 
-    return render(request, 'forms/form.html', {'form': form})
+    styled_form = StyledForm()
+
+    return render(request, 'forms/form.html', {'form': form, 'styled_form': styled_form})
